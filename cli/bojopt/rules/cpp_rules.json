@@ -1,0 +1,32 @@
+[
+  {
+    "pattern": "\\bcin\\b|\\bcout\\b",
+    "message": "cin/cout을 사용하는 경우 ios::sync_with_stdio(false)를 설정하세요.",
+    "severity": "warning",
+    "check_type": "regex"
+  },
+  {
+    "pattern": "\\bvector\\s*<",
+    "message": "vector 사용 시 크기를 알고 있다면 reserve()를 사용하세요.",
+    "severity": "info",
+    "check_type": "regex"
+  },
+  {
+    "pattern": "\\bmap\\s*<(?!.*unordered)",
+    "message": "map 대신 unordered_map을 사용하면 O(log n) → O(1)로 개선됩니다.",
+    "severity": "suggestion",
+    "check_type": "regex"
+  },
+  {
+    "pattern": "\\.size\\(\\)",
+    "message": "반복문 조건에서 .size() 반복 호출을 피하세요. 변수에 저장하세요.",
+    "severity": "info",
+    "check_type": "regex"
+  },
+  {
+    "pattern": "\\bsort\\s*\\(",
+    "message": "반복문 내에서 sort() 호출은 성능 저하를 일으킬 수 있습니다.",
+    "severity": "warning",
+    "check_type": "regex"
+  }
+]
