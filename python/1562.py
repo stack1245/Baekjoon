@@ -11,11 +11,11 @@ for i in range(1, N):
         for k in range(1024):
             if dp[i][j][k] == 0:
                 continue
-            
+
             if j > 0:
                 nk = k | (1 << (j - 1))
                 dp[i + 1][j - 1][nk] = (dp[i + 1][j - 1][nk] + dp[i][j][k]) % MOD
-            
+
             if j < 9:
                 nk = k | (1 << (j + 1))
                 dp[i + 1][j + 1][nk] = (dp[i + 1][j + 1][nk] + dp[i][j][k]) % MOD

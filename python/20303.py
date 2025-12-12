@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 N, M, K = map(int, input().split())
@@ -6,16 +7,19 @@ candy = [0] + list(map(int, input().split()))
 
 parent = list(range(N + 1))
 
+
 def find(x):
     if parent[x] != x:
         parent[x] = find(parent[x])
     return parent[x]
+
 
 def union(x, y):
     x = find(x)
     y = find(y)
     if x != y:
         parent[y] = x
+
 
 for _ in range(M):
     a, b = map(int, input().split())

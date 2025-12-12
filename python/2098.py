@@ -1,7 +1,7 @@
 N = int(input())
 W = [list(map(int, input().split())) for _ in range(N)]
 
-INF = float('inf')
+INF = float("inf")
 dp = [[INF] * N for _ in range(1 << N)]
 dp[1][0] = 0
 
@@ -11,13 +11,13 @@ for mask in range(1 << N):
             continue
         if not (mask & (1 << cur)):
             continue
-        
+
         for nxt in range(N):
             if mask & (1 << nxt):
                 continue
             if W[cur][nxt] == 0:
                 continue
-            
+
             nmask = mask | (1 << nxt)
             dp[nmask][nxt] = min(dp[nmask][nxt], dp[mask][cur] + W[cur][nxt])
 

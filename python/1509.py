@@ -16,7 +16,7 @@ for length in range(3, n + 1):
         if S[i] == S[j] and pal[i + 1][j - 1]:
             pal[i][j] = True
 
-dp = [float('inf')] * n
+dp = [float("inf")] * n
 
 for i in range(n):
     if pal[0][i]:
